@@ -73,6 +73,17 @@ $registros = $pdo->query("SELECT * FROM registros ORDER BY created_at DESC")->fe
         .btn-editar:hover {
             background: #d48b2a;
         }
+        .btn-eliminar {
+    background: #d9534f;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    margin-left: 6px;
+}
+.btn-eliminar:hover {
+    background: #b52b27;
     </style>
 </head>
 <body>
@@ -105,6 +116,7 @@ $registros = $pdo->query("SELECT * FROM registros ORDER BY created_at DESC")->fe
             <td><?= $r['mensaje'] ?></td>
             <td><?= $r['created_at'] ?></td>
             <td><a class="btn-editar" href="editar.php?id=<?= $r['id'] ?>">✏️ Editar</a></td>
+            <a class="btn-eliminar" href="eliminar.php?id=<?= $r['id'] ?>" onclick="return confirm('¿Seguro que deseas eliminar este registro?')">🗑️ Eliminar</a>
         </tr>
         <?php endforeach; ?>
     </table>
